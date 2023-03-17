@@ -29,6 +29,10 @@ Route::get('dosen/dashboard', function () {
     return view('dosen.dashboard');
 })->name('profile.show');
 
+Route::get('admin/dashboard', function () {
+    return view('admin.dashboard.show');
+});
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

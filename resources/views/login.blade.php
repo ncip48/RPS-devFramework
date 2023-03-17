@@ -5,7 +5,7 @@
             <a href="index.html"><img src="{{ asset('/images/logo/logo.png') }}" alt="Logo"></a>
         </div>
         <h1 class="auth-title">Log in.</h1>
-        <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+        <p class="auth-subtitle mb-5">Masuk dengan data yang sudah terdaftar.</p>
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
@@ -41,7 +41,7 @@
             </div>
             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
         </form>
-        <div class="text-center mt-5 text-lg fs-4">
+        {{-- <div class="text-center mt-5 text-lg fs-4">
             @if (Route::has('register'))
                 <p class="text-gray-600">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Sign
                         up</a>.</p>
@@ -51,6 +51,6 @@
             @if (Route::has('password.request'))
                 <p><a class="font-bold" href="{{ route('password.request') }}">Forgot password?</a>.</p>
             @endif
-        </div>
+        </div> --}}
     </div>
 </x-guest-layout>
