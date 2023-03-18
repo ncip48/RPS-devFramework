@@ -34,11 +34,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
 Auth::routes();
 
-// Route::middleware(['is_admin', 'auth'])->group(function () {
-Route::prefix('admin')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.index');
+Route::middleware(['is_admin', 'auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.index');
 
-    //masukkan rute admin disini
+        //masukkan rute admin disini
 
+    });
 });
-// });
