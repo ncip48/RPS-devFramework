@@ -25,6 +25,11 @@
                 <div class="form-control-icon">
                     <i class="bi bi-person"></i>
                 </div>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group position-relative has-icon-left mb-4">
                 <input type="password" class="form-control form-control-xl" name="password" placeholder="Password"
@@ -32,6 +37,11 @@
                 <div class="form-control-icon">
                     <i class="bi bi-shield-lock"></i>
                 </div>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $password }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-check form-check-lg d-flex align-items-end">
                 <input class="form-check-input me-2" type="checkbox" name="remember" id="flexCheckDefault">

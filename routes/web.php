@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,22 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', function () {
-    return view('login');
-});
-
-Route::post('login', function () {
-    echo "Login";
-})->name('login');
-
-Route::get('dosen/dashboard', function () {
-    return view('dosen.dashboard');
-})->name('profile.show');
-
-Route::get('admin/dashboard', function () {
-    return view('admin.dashboard.show');
-});
-
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -46,3 +31,14 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         })->name('accordion');
     });
 });
+
+Auth::routes();
+
+// Route::middleware(['is_admin', 'auth'])->group(function () {
+Route::prefix('admin')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.index');
+
+    //masukkan rute admin disini
+
+});
+// });
