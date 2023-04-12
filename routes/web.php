@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    echo "Hello";
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
@@ -40,5 +41,7 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
 
         //masukkan rute admin disini
 
+        //route user
+        Route::resource('user', UserController::class)->names('admin.user');
     });
 });

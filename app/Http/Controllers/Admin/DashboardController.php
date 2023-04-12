@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +13,7 @@ class DashboardController extends Controller
         $jumlah_dosen = 10;
         $jumlah_fakultas = 5;
         $jumlah_prodi = 2;
-        $jumlah_user = 5;
+        $jumlah_user = User::count();
         $jumlah_matkul = 1;
         $jumlah_rps = 2;
 

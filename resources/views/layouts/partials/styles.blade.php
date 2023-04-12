@@ -12,6 +12,6 @@
 <link rel="stylesheet" href="{{ mix('css/app-dark.css') }}">
 
 
-@livewireStyles
+{{-- @livewireStyles --}}
 
 {{ $style ?? '' }}
