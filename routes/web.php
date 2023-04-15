@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProdiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,5 +44,7 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
 
         //route user
         Route::resource('user', UserController::class)->names('admin.user');
+        Route::resource('prodi', ProdiController::class)->names('admin.prodi');
+
     });
 });
