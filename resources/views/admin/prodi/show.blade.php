@@ -54,7 +54,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Fakultas</th>
-                                            <th>Nama</th>
+                                            <th>Nama Prodi</th>
                                             <th>Kaprodi</th>
                                             <th>Sekprodi</th>
                                             <th>Action</th>
@@ -64,12 +64,18 @@
                                         @forelse ($prodis as $prodi)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $prodi->fakultas}}</td>
+                                                <td>{{ $prodi->name}}</td>
+                                                <td>{{ $prodi->kaprodi}}</td>
+                                                <td>{{ $prodi->sekprodi}}</td>
+
+                                                {{-- <td>{{ $prodi->id_fakultas }}</td>
                                                 <td>{{ $prodi->name }}</td>
-                                                <td>{{ $prodi->fakultas }}</td>
-                                                <td>{{ $prodi->kaprodi }}</td>
-                                                <td>{{ $prodi->sekprodi }}</td>
+                                                <td>{{ $prodi->id_kaprodi }}</td>
+                                                <td>{{ $prodi->id_sekprodi }}</td> --}}
+                                                
                                                 <td>
-                                                    <a href="{{ route('admin.user.edit', $user->id) }}"
+                                                    <a href="{{ route('admin.prodi.edit', $prodi->id) }}"
                                                         class="btn btn-sm btn-warning">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>

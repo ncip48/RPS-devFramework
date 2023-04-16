@@ -14,4 +14,20 @@ class Prodi extends Model
         'id_kaprodi',
         'id_sekprodi'
     ];
+
+    // public function fakultas()
+    // {
+    //     return $this->belongsTo(User::class, 'id_dosen');
+    // }
+
+    // public function kaprodi()
+    // {
+    //     return $this->belongsTo(Dosen::class, 'nip');
+    // }
+
+    // public function sekprodi()
+    // {
+    //     return $this->belongsTo(Dosen::class, 'nip');
+    // }
+
 }

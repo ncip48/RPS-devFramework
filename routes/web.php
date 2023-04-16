@@ -43,9 +43,9 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
 
         //masukkan rute admin disini
         Route::resource('dosen',DosenController::class)->names('admin.dosen');
+        Route::resource('prodi', ProdiController::class)->names('admin.prodi');
         //route user
         Route::resource('user', UserController::class)->names('admin.user');
-        Route::resource('prodi', ProdiController::class)->names('admin.prodi');
 
         
     });
