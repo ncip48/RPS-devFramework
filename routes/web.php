@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdiController;
 use App\Http\Controllers\Admin\DosenController;
+use App\Http\Controllers\Admin\MatkulController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,7 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
         //masukkan rute admin disini
         Route::resource('dosen',DosenController::class)->names('admin.dosen');
         Route::resource('prodi', ProdiController::class)->names('admin.prodi');
+        Route::resource('matkul', MatkulController::class)->names('admin.matkul');
         //route user
         Route::resource('user', UserController::class)->names('admin.user');
 
