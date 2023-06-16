@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdiController;
 use App\Http\Controllers\Admin\DosenController;
 use App\Http\Controllers\Admin\MatkulController;
+use App\Http\Controllers\Admin\FakultasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,8 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
         Route::resource('matkul', MatkulController::class)->names('admin.matkul');
         //route user
         Route::resource('user', UserController::class)->names('admin.user');
+        Route::resource('fakultas', FakultasController::class)->names('admin.fakultas');
+        
 
         
     });

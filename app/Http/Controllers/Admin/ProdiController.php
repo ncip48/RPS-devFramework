@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class ProdiController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the specified resource.
      */
     public function index(Request $request)
     {
