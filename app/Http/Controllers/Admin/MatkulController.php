@@ -31,6 +31,9 @@ class MatkulController extends Controller
     public function create()
     {
         //
+        $prodis = Prodi::all();
+        $dosens = Dosen::all();
+        return view('admin.matkul.create', compact('prodis', 'dosens'));
     }
 
     /**
@@ -39,6 +42,19 @@ class MatkulController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama_matkul' => 'required',
+            'id_prodi' => 'required',
+            'id_dosen' => 'required',
+        ],
+        [
+            'nama_matkul.required' => 'Nama matkul tidak boleh kosong',
+            'id_prodi.required' => 'Prodi tidak boleh kosong',
+            'id_dosen.required' => 'Dosen tidak boleh kosong',
+        ]);
+
+        Matkul::create($request->all());
+        return redirect()->route('admin.matkul.index')->with('success', 'matkul berhasil ditambahkan');
     }
 
     /**
@@ -54,7 +70,11 @@ class MatkulController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //edit matkul by id
+        $matkul = Matkul::findOrFail($id);
+        $prodis = Prodi::all();
+        $dosens = Dosen::all();
+        return view('admin.matkul.edit', compact('matkul', 'prodis', 'dosens'));
     }
 
     /**
@@ -63,6 +83,27 @@ class MatkulController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'nama_matkul' => 'required',
+            'id_prodi' => 'required',
+            'id_dosen' => 'required',
+        ],
+        [
+            'nama_matkul.required' => 'Nama matkul tidak boleh kosong',
+            'id_prodi.required' => 'Prodi tidak boleh kosong',
+            'id_dosen.required' => 'Dosen tidak boleh kosong',
+        ]);
+
+        // $matkul = Matkul::findOrFail($id);
+        // $matkul->update($request->all());
+        $matkul = Matkul::where('id', $id)->update([
+            'nama_matkul' => $request->nama_matkul,
+            'id_prodi' => $request->id_prodi,
+            'id_dosen' => $request->id_dosen,
+        ]);
+
+        $matkul->save();
+        return redirect()->route('admin.matkul.index')->with('success', 'matkul berhasil diupdate');
     }
 
     /**
@@ -71,6 +112,7 @@ class MatkulController extends Controller
     public function destroy(string $id)
     {
         //
+        $matkul = Matkul::findOrFail($id);
         $matkul->delete();
         return redirect()->route('admin.matkul.index')->with('success', 'matkul berhasil dihapus');
     }
