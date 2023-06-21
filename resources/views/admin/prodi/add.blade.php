@@ -38,7 +38,7 @@
                                     <select name="id_fakultas" id="id_fakultas" class="form-select">
                                         <option value="0">Tidak Ada</option>
                                         @foreach ($fakultases as $fakultas)
-                                        <option value="{{ $fakultas->id }}">{{ $fakultas->name }}</option>
+                                        <option value="{{ $fakultas->id }}">{{ $fakultas->nama_fakultas }}</option>
                                         @endforeach
                                     </select>
                                     @error('id_fakultas')

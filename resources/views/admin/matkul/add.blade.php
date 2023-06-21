@@ -43,16 +43,24 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="id_dosen">Dosen</label>
-                                    <input  id="id_dosen" class="form-control"
-                                        placeholder="Masukan ID Anda" name="id_dosen">
+                                    <select name="id_dosen" id="id_dosen" class="form-select">
+                                        <option value="0">Tidak Ada</option>
+                                        @foreach ($dosens as $dosen)
+                                            <option value="{{ $dosen->id_dosen }}">{{ $dosen->nama_dosen }}</option>
+                                        @endforeach
+                                    </select>
                                     @error('id_dosen')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="id_prodi">Prodi</label>
-                                    <input type="text" id="id_prodi" class="form-control" placeholder="Masukan Prodi"
-                                        name="id_prodi">
+                                    <select name="id_prodi" id="id_prodi" class="form-select">
+                                        <option value="0">Tidak Ada</option>
+                                        @foreach ($prodis as $prodi)
+                                            <option value="{{ $prodi->id_prodi }}">{{ $prodi->name }}</option>
+                                        @endforeach
+                                    </select>
                                     @error('id_prodi')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror

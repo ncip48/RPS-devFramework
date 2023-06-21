@@ -49,7 +49,7 @@
                                         @foreach ($fakultases as $fakultas)
                                             <option value="{{ $fakultas->id }}"
                                                 {{ old('id_fakultas', $prodis->id_fakultas) == $fakultas->id ? 'selected' : '' }}>
-                                                {{ $fakultas->name }}</option>
+                                                {{ $fakultas->nama_fakultas }}</option>
                                         @endforeach
                                     </select>
                                     @error('id_fakultas')

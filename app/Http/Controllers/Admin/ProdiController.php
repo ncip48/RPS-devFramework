@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dosen;
+use App\Models\fakultas;
 use App\Models\User;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
@@ -15,8 +16,8 @@ class ProdiController extends Controller
      */
     public function index(Request $request)
     {
-        $prodis = Prodi::select('prodis.*', 'users.name as fakultas', 'kaprodi.nama_dosen as kaprodi', 'sekprodi.nama_dosen as sekprodi')
-            ->join('users', 'users.id', '=', 'prodis.id_fakultas')
+        $prodis = Prodi::select('prodis.*', 'fakultas.nama_fakultas as fakultas', 'kaprodi.nama_dosen as kaprodi', 'sekprodi.nama_dosen as sekprodi')
+            ->join('fakultas', 'fakultas.id', '=', 'prodis.id_fakultas')
             ->join('dosens as kaprodi', 'kaprodi.id', '=', 'prodis.id_kaprodi')
             ->join('dosens as sekprodi', 'sekprodi.id', '=', 'prodis.id_sekprodi')
             ->paginate(10);
@@ -29,7 +30,7 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        $fakultases = User::all();
+        $fakultases = fakultas::all();
         $kaprodis = Dosen::all();
         $sekprodis = Dosen::all();
         return view('admin.prodi.add', compact('fakultases','kaprodis', 'sekprodis'));
@@ -65,7 +66,7 @@ class ProdiController extends Controller
     {
         // 
         $prodis = Prodi::find($id);
-        $fakultases = User::all();
+        $fakultases = fakultas::all();
         $kaprodis = Dosen::all();
         $sekprodis = Dosen::all();
         return view('admin.prodi.edit', compact('prodis', 'fakultases', 'kaprodis', 'sekprodis'));

@@ -33,7 +33,7 @@ class MatkulController extends Controller
         //
         $prodis = Prodi::all();
         $dosens = Dosen::all();
-        return view('admin.matkul.create', compact('prodis', 'dosens'));
+        return view('admin.matkul.add', compact('prodis', 'dosens'));
     }
 
     /**
@@ -41,7 +41,7 @@ class MatkulController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $request->validate([
             'nama_matkul' => 'required',
             'id_prodi' => 'required',
