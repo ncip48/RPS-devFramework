@@ -1,4 +1,4 @@
-<footer>
+{{-- <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
             <p>{{ now()->format('Y') }} &copy; Kiyowo Group</p>
@@ -8,4 +8,16 @@
                 by <a href="https://ahmadsaugi.com">Saugi - Mazer Template</a></p>
         </div>
     </div>
-</footer>
+</footer> --}}
+
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="footer_iner text-center">
+                    <p>{{ now()->format('Y') }} &copy; Dotech Digital</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

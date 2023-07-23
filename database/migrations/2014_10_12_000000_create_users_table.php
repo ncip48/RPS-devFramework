@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->integer('role');
             $table->string('image')->nullable();
-            $table->integer('id_dosen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

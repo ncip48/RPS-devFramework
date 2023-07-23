@@ -29,7 +29,6 @@ class User extends Authenticatable
         'password',
         'role',
         'image',
-        'id_dosen'
     ];
 
     /**

@@ -54,7 +54,10 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    // 'url' => env('APP_URL', 'http://localhost'),
+
+    //make dynamic url for http and https
+    'url' => str_replace(['http://', 'https://'], ['//', '//'], env('APP_URL', 'http://localhost')),
 
     'asset_url' => env('ASSET_URL'),
 

@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Institute;
+use App\Models\Invoice;
+use App\Models\LearningPlan;
+use App\Models\Personal;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +19,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Product::orderBy('id', 'asc')->get();
+        $countInstitute = Institute::count();
+        $countLearningPlan = LearningPlan::count();
+        $countPersonal = Personal::count();
+        $transaction = Invoice::sum('total');
+        return view('home', compact('products', 'countInstitute', 'countLearningPlan', 'countPersonal', 'transaction'));
+    }
+
+    public function panduan()
+    {
+        return view('panduan');
     }
 }

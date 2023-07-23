@@ -48,11 +48,7 @@ class LoginController extends Controller
     //custom redirection after login
     public function redirectTo()
     {
-        if (auth()->user()->role == 0) {
-            return '/admin/dashboard';
-        } else {
-            return '/dosen/dashboard';
-        }
+        return '/dashboard';
     }
 
     //redirection after logout

@@ -12,24 +12,17 @@
     @include('layouts.partials.styles')
 </head>
 
-<body>
+<body class="crm_body_bg">
     <div id="app">
         @include('layouts.partials.sidebar')
 
-        <div id="main" class='layout-navbar'>
+        <section class="main_content dashboard_part">
             @include('layouts.partials.header')
-            <div id="main-content">
 
-                <div class="page-heading">
-                    <div class="page-title">
-                        {{ $header }}
-                    </div>
-                    {{ $slot }}
-                </div>
+            @yield('content')
 
-                @include('layouts.partials.footer')
-            </div>
-        </div>
+            @include('layouts.partials.footer')
+        </section>
     </div>
 
     <!-- Scripts -->

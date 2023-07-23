@@ -16,16 +16,10 @@ class UserSeeder extends Seeder
         //batch insert
         User::insert([
             [
-                'name' => 'Admin',
-                'email' => 'admin@gmail.com',
+                'name' => 'Super Admin',
+                'email' => 'superadmin@gmail.com',
                 'password' => bcrypt('password'),
                 'role' => 0,
-            ],
-            [
-                'name' => 'Barka Satya',
-                'email' => 'dosen@gmail.com',
-                'password' => bcrypt('password'),
-                'role' => 1,
             ],
         ]);
     }
