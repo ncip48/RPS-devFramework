@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdiController;
 use App\Http\Controllers\Admin\DosenController;
+use App\Http\Controllers\Admin\MatkulController;
 use App\Http\Controllers\Admin\FakultasController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
